@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import sqlite3
 from datetime import datetime, timezone
@@ -206,5 +207,6 @@ class ApiHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     initialize_database()
-    print("xxr backend is listening on http://127.0.0.1:8000")
-    ThreadingHTTPServer(("127.0.0.1", 8000), ApiHandler).serve_forever()
+    port = int(os.environ.get("PORT", "8000"))
+    print(f"xxr backend is listening on http://0.0.0.0:{port}")
+    ThreadingHTTPServer(("0.0.0.0", port), ApiHandler).serve_forever()
