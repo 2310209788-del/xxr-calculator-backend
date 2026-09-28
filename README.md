@@ -23,6 +23,8 @@ Cloud platforms normally provide a `PORT` environment variable. The server reads
 DATABASE_PATH=/var/data/xxr_calculator.db
 ```
 
+For PythonAnywhere, use `wsgi.py` as the WSGI entry point. Its account home directory is persistent, so the default SQLite database file can remain in the project directory.
+
 ## API endpoints
 
 | 方法 | 路径 | 说明 |
