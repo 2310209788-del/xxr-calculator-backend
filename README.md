@@ -15,6 +15,14 @@ python server.py
 
 The service runs at `http://127.0.0.1:8000`. It creates `xxr_calculator.db` during the first startup.
 
+## Deployment environment variables
+
+Cloud platforms normally provide a `PORT` environment variable. The server reads it automatically. To preserve SQLite history after service restarts, attach a persistent disk and set `DATABASE_PATH` to a file on that disk. For example, if the disk is mounted at `/var/data`, use:
+
+```text
+DATABASE_PATH=/var/data/xxr_calculator.db
+```
+
 ## API endpoints
 
 | 方法 | 路径 | 说明 |

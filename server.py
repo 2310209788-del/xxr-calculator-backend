@@ -13,7 +13,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
-DATABASE = ROOT / "xxr_calculator.db"
+# A cloud host can set DATABASE_PATH to a file on its persistent disk.
+# Local development continues to use the project directory by default.
+DATABASE = Path(os.environ.get("DATABASE_PATH", str(ROOT / "xxr_calculator.db")))
 MAX_EXPRESSION_LENGTH = 200
 TOKEN_RE = re.compile(r"(?:\d+\.?(?:\d*)?|\.\d+)(?:[eE][+-]?\d+)?|[+*/()%-]")
 
